@@ -24,8 +24,12 @@ for(let i=0; i < sliderItems.length; i++){
 }
 
 // slideJump
-function slideJump(){
+function slideJump(steps, animation){
+    let index = parseInt(main.getAttribute("data-index"));
+    let currentElement = sliderItems[index];
 
+    index += steps;
+    if(index < 0) index = sliderItems.length
 }
 
 console.log(sliderItems);

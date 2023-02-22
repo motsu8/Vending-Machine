@@ -1,3 +1,25 @@
+// list
+class FastFood{
+    constructor(number, name, price, imgUrl){
+        this.number = number;
+        this.name = name;
+        this.price = price;
+        this.imgUrl = imgUrl;
+    }
+}
+const fastFoodsList = [
+    new FastFood(0, "store", "", "https://cdn.pixabay.com/photo/2016/08/24/17/16/open-sign-1617495_960_720.jpg"),
+    new FastFood(1, "Hamburger", "$10", "https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_960_720.jpg"),
+    new FastFood(2, "Fried Potato", "$5", "https://cdn.pixabay.com/photo/2016/11/20/09/06/bowl-1842294_960_720.jpg"),
+    new FastFood(3, "Fried Chicken", "$8", "https://cdn.pixabay.com/photo/2019/09/26/18/23/republic-of-korea-4506696__340.jpg"),
+    new FastFood(4, "Pizza", "$10", "https://cdn.pixabay.com/photo/2014/04/22/02/56/pizza-329523__340.jpg"),
+    new FastFood(5, "Fish & Chips", "$8", "https://cdn.pixabay.com/photo/2016/02/24/06/33/fries-1219189__340.jpg"),
+    new FastFood(6, "Sandwiches", "$10", "https://cdn.pixabay.com/photo/2016/01/10/02/46/sandwiches-1131401__340.jpg"),
+    new FastFood(7, "Doughnuts", "$5", "https://cdn.pixabay.com/photo/2019/05/11/17/08/donuts-4196093__340.jpg"),
+    new FastFood(8, "Salad", "$8", "https://cdn.pixabay.com/photo/2016/08/18/18/40/salad-1603608__340.jpg"),
+    new FastFood(9, "Orange", "$5", "https://cdn.pixabay.com/photo/2017/01/20/14/59/orange-1995044__340.jpg"),
+    new FastFood(10, "Coke", "$5", "https://cdn.pixabay.com/photo/2021/08/17/20/06/coca-cola-6554092__340.jpg")
+]
 // slider
 let slider = document.getElementById("slider");
 let sliderItems = document.querySelectorAll("#slider .slider-data .slider-item");

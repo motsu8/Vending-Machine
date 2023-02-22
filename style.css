@@ -10,3 +10,11 @@ img{
     width: 300px;
     height: 200px;
 }
+
+.deplete-animation{
+    animation: deplete 1s linear forwards;
+}
+
+.expand-animation{
+    animation: deplete 1s linear reverse forwards;
+}

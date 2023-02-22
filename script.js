@@ -22,7 +22,18 @@ const fastFoodsList = [
 ]
 // slider
 let slider = document.getElementById("slider");
+let sliderData = document.createElement("div");
+sliderData.classList.add("slider-data", "hidden");
+
+for(let i=0; i < fastFoodsList.length; i++){
+    let sliderItem = document.createElement("div");
+    sliderItem.classList.add("slider-item");
+    // img
+    sliderData.append(sliderItem);
+}
+
 let sliderItems = document.querySelectorAll("#slider .slider-data .slider-item");
+console.log(sliderItems)
 
 let sliderShow = document.createElement("div");
 let main = document.createElement("div");

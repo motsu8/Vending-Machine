@@ -59,7 +59,7 @@ function animation(currentElement, nextElement, animationType){
 
 // btn生成
 let btn = document.getElementById("btns");
-for(let i=0; i < sliderItems.length; i++){
+for(let i=0; i < sliderItems.length-1; i++){
     let jumpBtn = document.createElement("button");
     let currentIndex = i+1
     jumpBtn.innerHTML = currentIndex;

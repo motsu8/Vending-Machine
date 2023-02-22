@@ -44,12 +44,13 @@ function animation(currentElement, nextElement, animationType){
     extra.append(currentElement);
 
     main.classList.add("expand-animation");
-    extra.classList.add("delete-animation");
+    extra.classList.add("deplete-animation");
 
     if(animationType){
         sliderShow.innerHTML = "";
         sliderShow.append(extra);
         sliderShow.append(main);
+        console.log("right")
     } else {
         sliderShow.innerHTML = "";
         sliderShow.append(extra);

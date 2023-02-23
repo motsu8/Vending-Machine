@@ -91,6 +91,20 @@ function animation(currentElement, nextElement, animationType){
     }
 }
 
+// info生成
+function getDescription(element){
+    let description = document.getElementById("description");
+    let descriptionElement = "";
+    descriptionElement = `
+    ${element.name}
+    <br>
+    ${element.price}
+    `;
+    console.log(descriptionElement)
+    description.innerHTML = descriptionElement;
+}
+
+
 // btn生成
 let btn = document.getElementById("btns");
 for(let i=0; i < sliderItems.length-1; i++){
@@ -99,6 +113,9 @@ for(let i=0; i < sliderItems.length-1; i++){
     jumpBtn.innerHTML = currentIndex;
     jumpBtn.addEventListener("click", ()=>{
         slideJump(currentIndex);
+    });
+    jumpBtn.addEventListener("click", ()=>{
+        getDescription(fastFoodsList[currentIndex]);
     });
     btn.append(jumpBtn);
 }

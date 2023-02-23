@@ -66,9 +66,6 @@ function slideJump(steps){
     let animationType = currentIndex < nextIndex ? true : false;
     animation(currentElement, nextElement, animationType);
     console.log("Jumped!")
-    console.log(animationType)
-    console.log(currentIndex)
-    console.log(nextIndex)
 }
 
 // アニメーション
@@ -89,8 +86,8 @@ function animation(currentElement, nextElement, animationType){
         console.log("right")
     } else {
         sliderShow.innerHTML = "";
-        sliderShow.append(extra);
         sliderShow.append(main);
+        sliderShow.append(extra);
     }
 }
 

@@ -5,8 +5,8 @@ class FastFood{
         this.name = name;
         this.price = price;
         this.imgUrl = imgUrl;
-    }
-}
+    };
+};
 const fastFoodsList = [
     new FastFood(0, "store", "", "https://cdn.pixabay.com/photo/2016/08/24/17/16/open-sign-1617495_960_720.jpg"),
     new FastFood(1, "Hamburger", "$10", "https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_960_720.jpg"),
@@ -19,7 +19,7 @@ const fastFoodsList = [
     new FastFood(8, "Salad", "$8", "https://cdn.pixabay.com/photo/2016/08/18/18/40/salad-1603608__340.jpg"),
     new FastFood(9, "Orange", "$5", "https://cdn.pixabay.com/photo/2017/01/20/14/59/orange-1995044__340.jpg"),
     new FastFood(10, "Coke", "$5", "https://cdn.pixabay.com/photo/2021/08/17/20/06/coca-cola-6554092__340.jpg")
-]
+];
 // slider
 let slider = document.getElementById("slider");
 let sliderData = document.createElement("div");
@@ -28,12 +28,15 @@ sliderData.classList.add("slider-data", "hidden");
 for(let i=0; i < fastFoodsList.length; i++){
     let sliderItem = document.createElement("div");
     sliderItem.classList.add("slider-item");
-    // img
+    let img = document.createElement("img");
+    img.classList.add("imgFit")
+    img.src = fastFoodsList[i].imgUrl;
+    sliderItem.append(img);
     sliderData.append(sliderItem);
 }
+slider.append(sliderData);
 
-let sliderItems = document.querySelectorAll("#slider .slider-data .slider-item");
-console.log(sliderItems)
+let sliderItems = document.querySelectorAll(".slider-item");
 
 let sliderShow = document.createElement("div");
 let main = document.createElement("div");

@@ -8,7 +8,7 @@ class FastFood{
     };
 };
 const fastFoodsList = [
-    new FastFood(0, "store", "", "https://cdn.pixabay.com/photo/2016/08/24/17/16/open-sign-1617495_960_720.jpg"),
+    new FastFood(0, "press button, please.", "", "https://cdn.pixabay.com/photo/2016/08/24/17/16/open-sign-1617495_960_720.jpg"),
     new FastFood(1, "Hamburger", "$10", "https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_960_720.jpg"),
     new FastFood(2, "Fried Potato", "$5", "https://cdn.pixabay.com/photo/2016/11/20/09/06/bowl-1842294_960_720.jpg"),
     new FastFood(3, "Fried Chicken", "$8", "https://cdn.pixabay.com/photo/2019/09/26/18/23/republic-of-korea-4506696__340.jpg"),
@@ -92,9 +92,15 @@ function animation(currentElement, nextElement, animationType){
 }
 
 // info生成
+let info = document.getElementById("info");
+let description = document.createElement("div");
+description.classList.add("py-3");
+let descriptionElement = fastFoodsList[0].name;
+description.innerHTML = descriptionElement;
+
+// description
 function getDescription(element){
-    let description = document.getElementById("description");
-    let descriptionElement = "";
+    descriptionElement = "";
     descriptionElement = `
     ${element.name}
     <br>
@@ -104,9 +110,8 @@ function getDescription(element){
     description.innerHTML = descriptionElement;
 }
 
-
 // btn生成
-let btn = document.getElementById("btns");
+let btn = document.createElement("div");
 for(let i=0; i < sliderItems.length-1; i++){
     let jumpBtn = document.createElement("button");
     let currentIndex = i+1
@@ -119,3 +124,6 @@ for(let i=0; i < sliderItems.length-1; i++){
     });
     btn.append(jumpBtn);
 }
+
+info.append(description);
+info.append(btn);

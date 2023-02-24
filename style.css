@@ -2,13 +2,22 @@
     background-color: rgb(165, 255, 225);
 }
 
+.vh-100{
+    height: 100vh;
+}
+
+img{
+    width: 400px;
+    height: 300px;
+}
+
 .hidden{
     display: none;
 }
 
 .imgFit{
     object-fit: contain;
-    width: 100%;
+    width: 100%
 }
 
 .deplete-animation{

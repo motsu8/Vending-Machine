@@ -114,6 +114,7 @@ function getDescription(element){
 let btn = document.createElement("div");
 for(let i=0; i < sliderItems.length-1; i++){
     let jumpBtn = document.createElement("button");
+    jumpBtn.classList.add("btn", "btn-light", "m-2")
     let currentIndex = i+1
     jumpBtn.innerHTML = currentIndex;
     jumpBtn.addEventListener("click", ()=>{

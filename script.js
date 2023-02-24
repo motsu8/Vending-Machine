@@ -48,6 +48,7 @@ sliderShow.classList.add("col-12", "d-flex", "flex-nowrap");
 
 main.append(sliderItems[0]);
 sliderShow.append(main);
+sliderShow.append(extra);
 slider.append(sliderShow);
 
 main.setAttribute("data-index", "0")
@@ -93,7 +94,7 @@ function animation(currentElement, nextElement, animationType){
 // info生成
 let info = document.getElementById("info");
 let description = document.createElement("div");
-description.classList.add("py-3");
+description.classList.add("p-2");
 let descriptionElement = fastFoodsList[0].name;
 description.innerHTML = descriptionElement;
 
@@ -124,6 +125,5 @@ for(let i=0; i < sliderItems.length-1; i++){
     });
     btn.append(jumpBtn);
 }
-
 info.append(description);
 info.append(btn);

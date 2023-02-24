@@ -9,7 +9,7 @@ class FastFood{
 };
 const fastFoodsList = [
     new FastFood(0, "press button, please.", "", "https://cdn.pixabay.com/photo/2016/08/24/17/16/open-sign-1617495_960_720.jpg"),
-    new FastFood(1, "Hamburger", "$10", "https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_960_720.jpg"),
+    new FastFood(1, "Hamburger", "$10", "https://cdn.pixabay.com/photo/2016/03/05/22/09/beef-1239198__340.jpg"),
     new FastFood(2, "Fried Potato", "$5", "https://cdn.pixabay.com/photo/2016/11/20/09/06/bowl-1842294_960_720.jpg"),
     new FastFood(3, "Fried Chicken", "$8", "https://cdn.pixabay.com/photo/2019/09/26/18/23/republic-of-korea-4506696__340.jpg"),
     new FastFood(4, "Pizza", "$10", "https://cdn.pixabay.com/photo/2014/04/22/02/56/pizza-329523__340.jpg"),
@@ -29,7 +29,7 @@ for(let i=0; i < fastFoodsList.length; i++){
     let sliderItem = document.createElement("div");
     sliderItem.classList.add("slider-item");
     let img = document.createElement("img");
-    img.classList.add("imgFit")
+    img.classList.add("imgFit", "col-10")
     img.src = fastFoodsList[i].imgUrl;
     sliderItem.append(img);
     sliderData.append(sliderItem);
@@ -40,13 +40,14 @@ let sliderItems = document.querySelectorAll(".slider-item");
 
 let sliderShow = document.createElement("div");
 let main = document.createElement("div");
+main.classList.add("full-width")
 let extra = document.createElement("div");
+extra.classList.add("full-width")
 
 sliderShow.classList.add("col-12", "d-flex", "flex-nowrap");
 
 main.append(sliderItems[0]);
 sliderShow.append(main);
-sliderShow.append(extra);
 slider.append(sliderShow);
 
 main.setAttribute("data-index", "0")
@@ -63,14 +64,7 @@ function slideJump(steps){
     main.setAttribute("data-index", steps);
 
     // アニメーション
-    let animationType = "";
-    if(currentIndex < nextIndex){
-        animationType = "next";
-    }else if(currentIndex > nextIndex){
-        animationType = "before";
-    }else{
-        animationType = "same";
-    };
+    let animationType = currentIndex <= nextIndex ? true : false;
     animation(currentElement, nextElement, animationType);
 }
 
@@ -85,20 +79,14 @@ function animation(currentElement, nextElement, animationType){
     main.classList.add("expand-animation");
     extra.classList.add("deplete-animation");
 
-    if(animationType === "next"){
+    if(animationType){
         sliderShow.innerHTML = "";
         sliderShow.append(extra);
         sliderShow.append(main);
-    }else if(animationType === "before"){
-        sliderShow.innerHTML = "";
-        sliderShow.append(main);
-        sliderShow.append(extra);
     }else{
         sliderShow.innerHTML = "";
-        main.append(currentElement);
         sliderShow.append(main);
         sliderShow.append(extra);
-
     }
 }
 

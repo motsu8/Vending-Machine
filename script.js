@@ -57,7 +57,12 @@ main.setAttribute("data-index", "0")
 function slideJump(steps){
     // 現在の要素
     let currentIndex = parseInt(main.getAttribute("data-index"));
-    let currentElement = sliderItems[currentIndex];
+    let currentElement = document.createElement("div");
+    currentElement.innerHTML = `
+    <div class="slider-item">
+        <img class="imgFit col-10" src="${fastFoodsList[currentIndex].imgUrl}">
+    </div>
+    `
 
     // 次の要素
     let nextIndex = parseInt(steps);
@@ -65,40 +70,40 @@ function slideJump(steps){
     main.setAttribute("data-index", steps);
 
     // アニメーション
-    let animationType = "";
-    if(currentIndex < nextIndex){
-        animationType = "next";
-    }else if(currentIndex > nextIndex){
-        animationType = "before";
-    }else{
-        animationType = "same";
-    };
+    let animationType = getAnimationType(currentIndex, nextIndex);
+    console.log(animationType)
     animation(currentElement, nextElement, animationType);
+}
+
+// getAnimationType
+function getAnimationType(current, next){
+    let jumps = next - current;
+    let halfLen = fastFoodsList.length / 2;
+    return ((jumps >= 0 && Math.abs(jumps) < halfLen) || (jumps < 0 && Math.abs(jumps) > halfLen)) ? true : false;
 }
 
 // アニメーション
 function animation(currentElement, nextElement, animationType){
     main.innerHTML = "";
     main.append(nextElement);
-    
+
     extra.innerHTML = "";
     extra.append(currentElement);
-    
+
     main.classList.add("expand-animation");
     extra.classList.add("deplete-animation");
-    
-    if(animationType === "next"){
+
+    console.log(main)
+    console.log(extra)
+    console.log(currentElement)
+    console.log(nextElement)
+
+    if(animationType){
         sliderShow.innerHTML = "";
         sliderShow.append(extra);
         sliderShow.append(main);
-    }else if(animationType === "before"){
-        sliderShow.innerHTML = "";
-        sliderShow.append(main);
-        sliderShow.append(extra);
     }else{
         sliderShow.innerHTML = "";
-        main.innerHTML = "";
-        main.append(currentElement);
         sliderShow.append(main);
         sliderShow.append(extra);
     }
@@ -113,13 +118,11 @@ description.innerHTML = descriptionElement;
 
 // description
 function getDescription(element){
-    descriptionElement = "";
-    descriptionElement = `
+    let descriptionElement = `
     ${element.name}
     <br>
     ${element.price}
     `;
-    console.log(descriptionElement)
     description.innerHTML = descriptionElement;
 }
 

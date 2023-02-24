@@ -57,15 +57,17 @@ main.setAttribute("data-index", "0")
 function slideJump(steps){
     // 現在の要素
     let currentIndex = parseInt(main.getAttribute("data-index"));
-    let currentElement = sliderItems[currentIndex];
+    let currentElement = document.createElement("div");
+    currentElement.innerHTML = `
+    <div class="slider-item">
+        <img class="imgFit col-10" src="${fastFoodsList[currentIndex].imgUrl}">
+    </div>
+    `
 
     // 次の要素
     let nextIndex = parseInt(steps);
     let nextElement = sliderItems[nextIndex];
     main.setAttribute("data-index", steps);
-
-    console.log(currentElement)
-    console.log(nextElement)
 
     // アニメーション
     let animationType = getAnimationType(currentIndex, nextIndex);
@@ -90,6 +92,11 @@ function animation(currentElement, nextElement, animationType){
 
     main.classList.add("expand-animation");
     extra.classList.add("deplete-animation");
+
+    console.log(main)
+    console.log(extra)
+    console.log(currentElement)
+    console.log(nextElement)
 
     if(animationType){
         sliderShow.innerHTML = "";

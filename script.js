@@ -63,9 +63,15 @@ function slideJump(steps){
     main.setAttribute("data-index", steps);
 
     // アニメーション
-    let animationType = currentIndex < nextIndex ? true : false;
+    let animationType = "";
+    if(currentIndex < nextIndex){
+        animationType = "next";
+    }else if(currentIndex > nextIndex){
+        animationType = "before";
+    }else{
+        animationType = "same";
+    };
     animation(currentElement, nextElement, animationType);
-    console.log("Jumped!")
 }
 
 // アニメーション
@@ -79,15 +85,20 @@ function animation(currentElement, nextElement, animationType){
     main.classList.add("expand-animation");
     extra.classList.add("deplete-animation");
 
-    if(animationType){
+    if(animationType === "next"){
         sliderShow.innerHTML = "";
         sliderShow.append(extra);
         sliderShow.append(main);
-        console.log("right")
-    } else {
+    }else if(animationType === "before"){
         sliderShow.innerHTML = "";
         sliderShow.append(main);
         sliderShow.append(extra);
+    }else{
+        sliderShow.innerHTML = "";
+        main.append(currentElement);
+        sliderShow.append(main);
+        sliderShow.append(extra);
+
     }
 }
 
